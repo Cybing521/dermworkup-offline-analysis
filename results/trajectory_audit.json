@@ -1,0 +1,56 @@
+{
+  "n_chains": 958494,
+  "reasons": {
+    "ok": 66152,
+    "transitions": 174160,
+    "cancer_lesions": 50,
+    "action_AcquireDerm": 5615,
+    "action_WatchTBP": 168376,
+    "short": 892342,
+    "action_ReferExcise": 169
+  },
+  "alignment": {
+    "none": 65983,
+    "lesion_level": 120,
+    "visit": 49
+  },
+  "n_transitions": 174160,
+  "n_participants": 352,
+  "tile_columns": {
+    "Uniqie_ID": "uniqie_id",
+    "Participant_visit": "participant_visit",
+    "Lesion_Exact_Location": "lesion_exact_location",
+    "Lesion_Simple_Location": "lesion_simple_location",
+    "Diagnosis": "diagnosis",
+    "Diagnosis_Basis": "diagnosis_basis",
+    "Histopathologic_Result": "histopathologic_result",
+    "Corresponding_Dermoscopic_Image_ID": "corresponding_dermoscopic_image_id",
+    "Corresponding_LesionID_for_next_1_visit": "corresponding_lesionid_for_next_1_visit",
+    "Corresponding_LesionID_for_next_2_visit": "corresponding_lesionid_for_next_2_visit",
+    "Corresponding_LesionID_for_next_3_visit": "corresponding_lesionid_for_next_3_visit",
+    "Corresponding_LesionID_for_next_4_visit": "corresponding_lesionid_for_next_4_visit",
+    "Corresponding_LesionID_for_next_5_visit": "corresponding_lesionid_for_next_5_visit",
+    "Corresponding_LesionID_for_next_6_visit": "corresponding_lesionid_for_next_6_visit"
+  },
+  "participant_columns": {},
+  "split_patients": {
+    "train": 248,
+    "val": 35,
+    "test": 69
+  },
+  "pathology_lesions": 169,
+  "alignment_visit": 49,
+  "alignment_lesion_level": 120,
+  "lesion_level_share": 0.7100591715976331,
+  "protocol_id": "rda-mdp-v2",
+  "gate": "pass",
+  "behavior": {
+    "WatchTBP": 0.966789159393661,
+    "AcquireDerm": 0.03224046853468075,
+    "ReferExcise": 0.0009703720716582453,
+    "return": 0.01858549609554433,
+    "cost_miss": 0.00014354616444648598,
+    "cost_over": 0.0006832797427652733,
+    "n": 174160
+  }
+}

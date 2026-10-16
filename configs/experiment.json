@@ -1,0 +1,20 @@
+{
+  "experiment_id": "rda-v2",
+  "protocol": "configs/protocol.json",
+  "methods": ["behavior", "bc", "onestep", "iql", "cql", "rda"],
+  "ablations": ["rda_no_channel_mask", "rda_no_cost", "rda_no_support"],
+  "gamma": 0.95,
+  "expectile": 0.7,
+  "awr_temp": 0.5,
+  "cql_alpha": 1.0,
+  "lr": 0.0003,
+  "batch_size": 256,
+  "hidden": 128,
+  "seed": 0,
+  "kappa_miss": 0.2,
+  "kappa_over": 0.1,
+  "lambda_init": 0.1,
+  "train_steps": 20000,
+  "smoke_steps": 8,
+  "note": "Route B: benchmark + collapse diagnostic + history-only dermoscopy onset. Constrained RL is not the paper's main claim. publication_evidence stays false until a frozen run is copied into the evidence pack."
+}

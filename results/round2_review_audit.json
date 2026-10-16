@@ -1,0 +1,474 @@
+{
+  "test_chain_table": {
+    "n_chains": 12141,
+    "length_hist": {
+      "1": 3,
+      "2": 8115,
+      "3": 2101,
+      "4": 1163,
+      "5": 594,
+      "6": 82,
+      "7": 79,
+      "9": 2,
+      "10": 2
+    },
+    "n_multi_patient": 0,
+    "n_duplicate_visit": 18,
+    "n_duplicate_uid": 0,
+    "n_length_1": 3
+  },
+  "train_chain_table": {
+    "n_chains": 47509,
+    "length_hist": {
+      "1": 11,
+      "2": 29318,
+      "3": 10651,
+      "4": 4877,
+      "5": 1967,
+      "6": 299,
+      "7": 374,
+      "8": 10,
+      "9": 1,
+      "10": 1
+    },
+    "n_multi_patient": 0,
+    "n_duplicate_visit": 75,
+    "n_duplicate_uid": 0,
+    "n_length_1": 11
+  },
+  "val_chain_table": {
+    "n_chains": 6502,
+    "length_hist": {
+      "2": 3511,
+      "3": 926,
+      "4": 1826,
+      "5": 138,
+      "6": 36,
+      "7": 65
+    },
+    "n_multi_patient": 0,
+    "n_duplicate_visit": 4,
+    "n_duplicate_uid": 0,
+    "n_length_1": 0
+  },
+  "test_onset": {
+    "n_recorded_onset": 1032,
+    "n_chain_first": 933,
+    "frac_chain_first": 0.9040697674418605,
+    "n_recorded_onset_drop_dup_visit_chains": 1003,
+    "n_chain_first_drop_dup_visit_chains": 917,
+    "frac_chain_first_drop_dup_visit_chains": 0.9142572283150548
+  },
+  "lookup_score_source_all_test": {
+    "cell": 31241
+  },
+  "lookup_score_source_prev0": {
+    "cell": 28054
+  },
+  "label_rule_sensitivity_prev0": {
+    "recorded_onset_default": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.731132585622166,
+        "ap_grouped": 0.09242986363719025,
+        "ap_rank": 0.2966564140625026
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.8094857319818075,
+        "ap_grouped": 0.3093015201128494,
+        "ap_rank": 0.34376589175635275
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.795501971118566,
+        "ap_grouped": 0.3165402771961445,
+        "ap_rank": 0.3201133409424316
+      }
+    },
+    "adjacent_no_endpoint": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.7276082525034628,
+        "ap_grouped": 0.09225700878644333,
+        "ap_rank": 0.29659917978135397
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.8056868869334889,
+        "ap_grouped": 0.30843059481579993,
+        "ap_rank": 0.34327954556889095
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.7920259612204402,
+        "ap_grouped": 0.31538037968710814,
+        "ap_rank": 0.31903434529030195
+      }
+    },
+    "visit_aligned_endpoint_only": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.731132585622166,
+        "ap_grouped": 0.09242986363719025,
+        "ap_rank": 0.2966564140625026
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.8094857319818075,
+        "ap_grouped": 0.3093015201128494,
+        "ap_rank": 0.34376589175635275
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.795501971118566,
+        "ap_grouped": 0.3165402771961445,
+        "ap_rank": 0.3201133409424316
+      }
+    },
+    "lesion_level_endpoint_only": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.7276082525034628,
+        "ap_grouped": 0.09225700878644333,
+        "ap_rank": 0.29659917978135397
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.8056868869334889,
+        "ap_grouped": 0.30843059481579993,
+        "ap_rank": 0.34327954556889095
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.7920259612204402,
+        "ap_grouped": 0.31538037968710814,
+        "ap_rank": 0.31903434529030195
+      }
+    },
+    "cancer_coded_endpoint_only": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1041,
+        "prevalence": 0.03710700791331004,
+        "auroc": 0.7297592118897605,
+        "ap_grouped": 0.09244253242993042,
+        "ap_rank": 0.29755285846392854
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1041,
+        "prevalence": 0.03710700791331004,
+        "auroc": 0.8061282124346647,
+        "ap_grouped": 0.3092287744257575,
+        "ap_rank": 0.34419834166549246
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1041,
+        "prevalence": 0.03710700791331004,
+        "auroc": 0.7927385658017222,
+        "ap_grouped": 0.3162381432060975,
+        "ap_rank": 0.319904870148145
+      }
+    }
+  },
+  "subset_sensitivity": {
+    "prev0": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.731132585622166,
+        "ap_grouped": 0.09242986363719025,
+        "ap_rank": 0.2966564140625026
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.8094857319818075,
+        "ap_grouped": 0.3093015201128494,
+        "ap_rank": 0.34376589175635275
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.795501971118566,
+        "ap_grouped": 0.3165402771961445,
+        "ap_rank": 0.3201133409424316
+      }
+    },
+    "prev0_drop_duplicate_visit_chains": {
+      "visit": {
+        "n": 28022,
+        "n_pos": 1003,
+        "prevalence": 0.03579330526015274,
+        "auroc": 0.7386997746905108,
+        "ap_grouped": 0.09218399689885204,
+        "ap_rank": 0.301616718189359
+      },
+      "lookup": {
+        "n": 28022,
+        "n_pos": 1003,
+        "prevalence": 0.03579330526015274,
+        "auroc": 0.8145761649136015,
+        "ap_grouped": 0.313986186555139,
+        "ap_rank": 0.34856319695717713
+      },
+      "tabular": {
+        "n": 28022,
+        "n_pos": 1003,
+        "prevalence": 0.03579330526015274,
+        "auroc": 0.8016854724696705,
+        "ap_grouped": 0.32081299919031775,
+        "ap_rank": 0.3243505201954102
+      }
+    },
+    "prev0_general_only": {
+      "visit": {
+        "n": 6678,
+        "n_pos": 443,
+        "prevalence": 0.06633722671458521,
+        "auroc": 0.8194541843992172,
+        "ap_grouped": 0.5923491054413161,
+        "ap_rank": 0.6178126144164506
+      },
+      "lookup": {
+        "n": 6678,
+        "n_pos": 443,
+        "prevalence": 0.06633722671458521,
+        "auroc": 0.8194541843992172,
+        "ap_grouped": 0.5923491054413161,
+        "ap_rank": 0.6178126144164506
+      },
+      "tabular": {
+        "n": 6678,
+        "n_pos": 443,
+        "prevalence": 0.06633722671458521,
+        "auroc": 0.821854165572996,
+        "ap_grouped": 0.6165190924103903,
+        "ap_rank": 0.6217791113619634
+      }
+    },
+    "prev0_highrisk_only": {
+      "visit": {
+        "n": 21376,
+        "n_pos": 589,
+        "prevalence": 0.02755426646706587,
+        "auroc": 0.7673225389088763,
+        "ap_grouped": 0.07214240311850753,
+        "ap_rank": 0.08154260996653884
+      },
+      "lookup": {
+        "n": 21376,
+        "n_pos": 589,
+        "prevalence": 0.02755426646706587,
+        "auroc": 0.7605494177624892,
+        "ap_grouped": 0.0719702633404932,
+        "ap_rank": 0.08126521262418615
+      },
+      "tabular": {
+        "n": 21376,
+        "n_pos": 589,
+        "prevalence": 0.02755426646706587,
+        "auroc": 0.7684610165537867,
+        "ap_grouped": 0.07349616065357327,
+        "ap_rank": 0.07247776887953117
+      }
+    },
+    "prev0_not_chain_first": {
+      "visit": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.4898989898989899,
+        "ap_grouped": 0.016042226672215738,
+        "ap_rank": 0.015874972690178474
+      },
+      "lookup": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.5307782517217196,
+        "ap_grouped": 0.017687009239770332,
+        "ap_rank": 0.023307135347921715
+      },
+      "tabular": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.5839139465989093,
+        "ap_grouped": 0.008580927338946795,
+        "ap_rank": 0.011800270518442887
+      }
+    }
+  },
+  "correspondence": {
+    "n_tile_rows": 1066556,
+    "n_blank_uid": 0,
+    "n_unique_uid": 1066555,
+    "n_uid_row_collisions_extra": 1,
+    "n_rows_with_any_next_field": 108003,
+    "rate_rows_with_any_next_field": 0.10126331856930157,
+    "n_next_field_values": 172885,
+    "n_next_values_found_as_uid": 172642,
+    "n_next_values_missing_as_uid": 243,
+    "rate_next_values_found_as_uid": 0.9985944413916765,
+    "n_next_self_loop": 0,
+    "n_next_cross_patient_uid": 0,
+    "n_next_same_patient_uid": 172642,
+    "n_union_components": 958494,
+    "n_union_components_len_ge2": 66152,
+    "n_union_components_multi_patient": 0
+  },
+  "test_cells_prev0": {
+    "general|1": {
+      "n": 200,
+      "pos": 199,
+      "rate": 0.995
+    },
+    "general|2": {
+      "n": 41,
+      "pos": 41,
+      "rate": 1.0
+    },
+    "general|3": {
+      "n": 1535,
+      "pos": 62,
+      "rate": 0.040390879478827364
+    },
+    "general|4": {
+      "n": 2341,
+      "pos": 88,
+      "rate": 0.037590773173857325
+    },
+    "general|5": {
+      "n": 388,
+      "pos": 38,
+      "rate": 0.0979381443298969
+    },
+    "general|6": {
+      "n": 1375,
+      "pos": 11,
+      "rate": 0.008
+    },
+    "general|7": {
+      "n": 798,
+      "pos": 4,
+      "rate": 0.005012531328320802
+    },
+    "highrisk|1": {
+      "n": 5122,
+      "pos": 430,
+      "rate": 0.08395158141351035
+    },
+    "highrisk|2": {
+      "n": 4321,
+      "pos": 60,
+      "rate": 0.01388567461235825
+    },
+    "highrisk|3": {
+      "n": 5022,
+      "pos": 50,
+      "rate": 0.009956192751891677
+    },
+    "highrisk|4": {
+      "n": 4992,
+      "pos": 33,
+      "rate": 0.006610576923076923
+    },
+    "highrisk|5": {
+      "n": 1919,
+      "pos": 16,
+      "rate": 0.008337675872850442
+    }
+  },
+  "train_cells_prev0": {
+    "general|1": {
+      "n": 892,
+      "pos": 888,
+      "rate": 0.9955156950672646
+    },
+    "general|2": {
+      "n": 244,
+      "pos": 242,
+      "rate": 0.9918032786885246
+    },
+    "general|3": {
+      "n": 3616,
+      "pos": 213,
+      "rate": 0.05890486725663717
+    },
+    "general|4": {
+      "n": 6007,
+      "pos": 348,
+      "rate": 0.05793241218578325
+    },
+    "general|5": {
+      "n": 4727,
+      "pos": 120,
+      "rate": 0.025386079966151893
+    },
+    "general|6": {
+      "n": 5140,
+      "pos": 121,
+      "rate": 0.023540856031128404
+    },
+    "general|7": {
+      "n": 4317,
+      "pos": 19,
+      "rate": 0.004401204540189946
+    },
+    "highrisk|1": {
+      "n": 20882,
+      "pos": 1424,
+      "rate": 0.06819270184848195
+    },
+    "highrisk|2": {
+      "n": 24763,
+      "pos": 307,
+      "rate": 0.012397528570851675
+    },
+    "highrisk|3": {
+      "n": 17961,
+      "pos": 168,
+      "rate": 0.009353599465508603
+    },
+    "highrisk|4": {
+      "n": 14673,
+      "pos": 146,
+      "rate": 0.009950248756218905
+    },
+    "highrisk|5": {
+      "n": 9044,
+      "pos": 95,
+      "rate": 0.01050420168067227
+    }
+  }
+}

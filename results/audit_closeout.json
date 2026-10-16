@@ -1,0 +1,3010 @@
+{
+  "eval_kind": "dermworkup_ranking_audit",
+  "publication_evidence": false,
+  "metric_definitions": {
+    "ap_rank": "mean precision at each positive; ties keep input order",
+    "ap_grouped": "sklearn-style AP; one PR point per unique score",
+    "pr_auc_trapz": "trapezoidal area under grouped PR curve including (0,1)",
+    "AcquireDerm": "adjacent-record dermoscopy-presence onset; not a logged clinician action",
+    "prev0": "previous chained record has no dermoscopy id; not lifetime-null",
+    "never_derm_before": "no dermoscopy id on any earlier chained record"
+  },
+  "splits": {
+    "train": {
+      "split": "train",
+      "provenance": {
+        "n_lesion_visit_records": 124454,
+        "n_lesion_chains": 47509,
+        "n_adjacent_pairs_if_linear": 76945,
+        "n_participants": 248,
+        "adjacent_onset": 4116,
+        "first_observed_onset": 3936,
+        "repeat_presence": 12102,
+        "action_AcquireDerm": 4091,
+        "adjacent_equals_action": 0,
+        "adjacent_not_first_observed": 180,
+        "first_observed_not_AcquireDerm": 25,
+        "chain_first_record_with_dermoscopy": 3722,
+        "chain_first_record_AcquireDerm": 3711,
+        "alignment_lesions": {
+          "none": 47397,
+          "lesion_level": 83,
+          "visit": 29
+        },
+        "excise_on_alignment_none_lesions": 0,
+        "excise_on_always_false_without_evidence": 0
+      },
+      "cohort_prev0": {
+        "general": {
+          "1": {
+            "n": 892,
+            "pos": 888,
+            "rate": 0.9955156950672646
+          },
+          "2": {
+            "n": 244,
+            "pos": 242,
+            "rate": 0.9918032786885246
+          },
+          "3": {
+            "n": 3616,
+            "pos": 213,
+            "rate": 0.05890486725663717
+          },
+          "4": {
+            "n": 6007,
+            "pos": 348,
+            "rate": 0.05793241218578325
+          },
+          "5": {
+            "n": 4727,
+            "pos": 120,
+            "rate": 0.025386079966151893
+          },
+          "6": {
+            "n": 5140,
+            "pos": 121,
+            "rate": 0.023540856031128404
+          },
+          "7": {
+            "n": 4317,
+            "pos": 19,
+            "rate": 0.004401204540189946
+          },
+          "overall": {
+            "n": 24943,
+            "pos": 1951,
+            "rate": 0.07821833781020728
+          }
+        },
+        "highrisk": {
+          "1": {
+            "n": 20882,
+            "pos": 1424,
+            "rate": 0.06819270184848195
+          },
+          "2": {
+            "n": 24763,
+            "pos": 307,
+            "rate": 0.012397528570851675
+          },
+          "3": {
+            "n": 17961,
+            "pos": 168,
+            "rate": 0.009353599465508603
+          },
+          "4": {
+            "n": 14673,
+            "pos": 146,
+            "rate": 0.009950248756218905
+          },
+          "5": {
+            "n": 9044,
+            "pos": 95,
+            "rate": 0.01050420168067227
+          },
+          "overall": {
+            "n": 87323,
+            "pos": 2140,
+            "rate": 0.024506716443548664
+          }
+        }
+      },
+      "ranking": {
+        "prev0_visit": {
+          "n": 112266,
+          "n_pos": 4091,
+          "prevalence": 0.03644024014394385,
+          "auroc": 0.7019545653010603,
+          "ap_rank": 0.3331753661118957,
+          "ap_grouped": 0.08100324915392297,
+          "pr_auc_trapz": 0.33766755272399784,
+          "auprc": 0.3331753661118957,
+          "name": "prev0_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 25007,
+              "pos": 549,
+              "rate": 0.021953852921182068
+            },
+            "3": {
+              "n": 21577,
+              "pos": 381,
+              "rate": 0.01765769105992492
+            },
+            "4": {
+              "n": 20680,
+              "pos": 494,
+              "rate": 0.023887814313346228
+            },
+            "5": {
+              "n": 13771,
+              "pos": 215,
+              "rate": 0.01561251906179653
+            },
+            "6": {
+              "n": 5140,
+              "pos": 121,
+              "rate": 0.023540856031128404
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_visit": {
+          "n": 112049,
+          "n_pos": 3911,
+          "prevalence": 0.03490437219430785,
+          "auroc": 0.7191277612123781,
+          "ap_rank": 0.34596553275714476,
+          "ap_grouped": 0.08235758197410961,
+          "pr_auc_trapz": 0.3506815367517546,
+          "auprc": 0.34596553275714476,
+          "name": "never_derm_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 24994,
+              "pos": 538,
+              "rate": 0.021525166039849563
+            },
+            "3": {
+              "n": 21505,
+              "pos": 323,
+              "rate": 0.015019762845849802
+            },
+            "4": {
+              "n": 20618,
+              "pos": 441,
+              "rate": 0.021389077505092637
+            },
+            "5": {
+              "n": 13728,
+              "pos": 177,
+              "rate": 0.012893356643356644
+            },
+            "6": {
+              "n": 5130,
+              "pos": 115,
+              "rate": 0.022417153996101363
+            },
+            "7": {
+              "n": 4300,
+              "pos": 5,
+              "rate": 0.0011627906976744186
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_exclude_chain_first_visit": {
+          "n": 64757,
+          "n_pos": 380,
+          "prevalence": 0.005868091480457712,
+          "auroc": 0.5103571028554658,
+          "ap_rank": 0.02170688984857755,
+          "ap_grouped": 0.014447225855953002,
+          "pr_auc_trapz": 0.08604021756410125,
+          "auprc": 0.02170688984857755,
+          "name": "prev0_exclude_chain_first_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 15,
+              "pos": 7,
+              "rate": 0.4666666666666667
+            },
+            "2": {
+              "n": 19449,
+              "pos": 110,
+              "rate": 0.005655817779834439
+            },
+            "3": {
+              "n": 14241,
+              "pos": 80,
+              "rate": 0.005617583034899234
+            },
+            "4": {
+              "n": 12150,
+              "pos": 79,
+              "rate": 0.0065020576131687245
+            },
+            "5": {
+              "n": 13106,
+              "pos": 76,
+              "rate": 0.0057988707462231035
+            },
+            "6": {
+              "n": 1479,
+              "pos": 9,
+              "rate": 0.006085192697768763
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.4666666666666667,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_exclude_chain_first_visit": {
+          "n": 64540,
+          "n_pos": 200,
+          "prevalence": 0.0030988534242330336,
+          "auroc": 0.6087789866335095,
+          "ap_rank": 0.03401613445949908,
+          "ap_grouped": 0.020634418486635248,
+          "pr_auc_trapz": 0.14424944879470133,
+          "auprc": 0.03401613445949908,
+          "name": "never_derm_exclude_chain_first_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 15,
+              "pos": 7,
+              "rate": 0.4666666666666667
+            },
+            "2": {
+              "n": 19436,
+              "pos": 99,
+              "rate": 0.005093640666803869
+            },
+            "3": {
+              "n": 14169,
+              "pos": 22,
+              "rate": 0.001552685440045169
+            },
+            "4": {
+              "n": 12088,
+              "pos": 26,
+              "rate": 0.0021508934480476507
+            },
+            "5": {
+              "n": 13063,
+              "pos": 38,
+              "rate": 0.002908979560590982
+            },
+            "6": {
+              "n": 1469,
+              "pos": 3,
+              "rate": 0.0020422055820285907
+            },
+            "7": {
+              "n": 4300,
+              "pos": 5,
+              "rate": 0.0011627906976744186
+            }
+          },
+          "max_visit_rate": 0.4666666666666667,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_cohort": {
+          "n": 112266,
+          "n_pos": 4091,
+          "prevalence": 0.03644024014394385,
+          "auroc": 0.6321780126119684,
+          "ap_rank": 0.08402925866181983,
+          "ap_grouped": 0.056364236366598444,
+          "pr_auc_trapz": 0.2870903610229281,
+          "auprc": 0.08402925866181983,
+          "name": "prev0_cohort",
+          "n_unique_scores": 2,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 25007,
+              "pos": 549,
+              "rate": 0.021953852921182068
+            },
+            "3": {
+              "n": 21577,
+              "pos": 381,
+              "rate": 0.01765769105992492
+            },
+            "4": {
+              "n": 20680,
+              "pos": 494,
+              "rate": 0.023887814313346228
+            },
+            "5": {
+              "n": 13771,
+              "pos": 215,
+              "rate": 0.01561251906179653
+            },
+            "6": {
+              "n": 5140,
+              "pos": 121,
+              "rate": 0.023540856031128404
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_cohort_visit": {
+          "n": 112266,
+          "n_pos": 4091,
+          "prevalence": 0.03644024014394385,
+          "auroc": 0.7612658551351711,
+          "ap_rank": 0.3656558651638564,
+          "ap_grouped": 0.34314234803851656,
+          "pr_auc_trapz": 0.3703872870122995,
+          "auprc": 0.3656558651638564,
+          "name": "prev0_cohort_visit",
+          "n_unique_scores": 12,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 25007,
+              "pos": 549,
+              "rate": 0.021953852921182068
+            },
+            "3": {
+              "n": 21577,
+              "pos": 381,
+              "rate": 0.01765769105992492
+            },
+            "4": {
+              "n": 20680,
+              "pos": 494,
+              "rate": 0.023887814313346228
+            },
+            "5": {
+              "n": 13771,
+              "pos": 215,
+              "rate": 0.01561251906179653
+            },
+            "6": {
+              "n": 5140,
+              "pos": 121,
+              "rate": 0.023540856031128404
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "majority_prev0": {
+          "n": 112266,
+          "n_pos": 4091,
+          "prevalence": 0.03644024014394385,
+          "auroc": 0.5,
+          "ap_rank": 0.08402925866181983,
+          "ap_grouped": 0.03644024014394385,
+          "pr_auc_trapz": 0.5182201200719719,
+          "auprc": 0.08402925866181983,
+          "name": "majority_prev0",
+          "n_unique_scores": 1,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 25007,
+              "pos": 549,
+              "rate": 0.021953852921182068
+            },
+            "3": {
+              "n": 21577,
+              "pos": 381,
+              "rate": 0.01765769105992492
+            },
+            "4": {
+              "n": 20680,
+              "pos": 494,
+              "rate": 0.023887814313346228
+            },
+            "5": {
+              "n": 13771,
+              "pos": 215,
+              "rate": 0.01561251906179653
+            },
+            "6": {
+              "n": 5140,
+              "pos": 121,
+              "rate": 0.023540856031128404
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_history": {
+          "n": 112266,
+          "n_pos": 4091,
+          "prevalence": 0.03644024014394385,
+          "auroc": 0.8001087428778962,
+          "ap_rank": 0.38233043724488197,
+          "ap_grouped": 0.3712181835615082,
+          "pr_auc_trapz": 0.38168720808588325,
+          "auprc": 0.38233043724488197,
+          "name": "prev0_history",
+          "n_unique_scores": 60,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 25007,
+              "pos": 549,
+              "rate": 0.021953852921182068
+            },
+            "3": {
+              "n": 21577,
+              "pos": 381,
+              "rate": 0.01765769105992492
+            },
+            "4": {
+              "n": 20680,
+              "pos": 494,
+              "rate": 0.023887814313346228
+            },
+            "5": {
+              "n": 13771,
+              "pos": 215,
+              "rate": 0.01561251906179653
+            },
+            "6": {
+              "n": 5140,
+              "pos": 121,
+              "rate": 0.023540856031128404
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "never_derm_history": {
+          "n": 112049,
+          "n_pos": 3911,
+          "prevalence": 0.03490437219430785,
+          "auroc": 0.822773612818633,
+          "ap_rank": 0.3971365943907158,
+          "ap_grouped": 0.38559456742476345,
+          "pr_auc_trapz": 0.39647637621139153,
+          "auprc": 0.3971365943907158,
+          "name": "never_derm_history",
+          "n_unique_scores": 60,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2312,
+              "rate": 0.10618168457793699
+            },
+            "2": {
+              "n": 24994,
+              "pos": 538,
+              "rate": 0.021525166039849563
+            },
+            "3": {
+              "n": 21505,
+              "pos": 323,
+              "rate": 0.015019762845849802
+            },
+            "4": {
+              "n": 20618,
+              "pos": 441,
+              "rate": 0.021389077505092637
+            },
+            "5": {
+              "n": 13728,
+              "pos": 177,
+              "rate": 0.012893356643356644
+            },
+            "6": {
+              "n": 5130,
+              "pos": 115,
+              "rate": 0.022417153996101363
+            },
+            "7": {
+              "n": 4300,
+              "pos": 5,
+              "rate": 0.0011627906976744186
+            }
+          },
+          "max_visit_rate": 0.10618168457793699,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "prev0_exclude_chain_first_history": {
+          "n": 64757,
+          "n_pos": 380,
+          "prevalence": 0.005868091480457712,
+          "auroc": 0.4928934246703015,
+          "ap_rank": 0.010710711450046262,
+          "ap_grouped": 0.00915640196503909,
+          "pr_auc_trapz": 0.010513651553287047,
+          "auprc": 0.010710711450046262,
+          "name": "prev0_exclude_chain_first_history",
+          "n_unique_scores": 47,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 15,
+              "pos": 7,
+              "rate": 0.4666666666666667
+            },
+            "2": {
+              "n": 19449,
+              "pos": 110,
+              "rate": 0.005655817779834439
+            },
+            "3": {
+              "n": 14241,
+              "pos": 80,
+              "rate": 0.005617583034899234
+            },
+            "4": {
+              "n": 12150,
+              "pos": 79,
+              "rate": 0.0065020576131687245
+            },
+            "5": {
+              "n": 13106,
+              "pos": 76,
+              "rate": 0.0057988707462231035
+            },
+            "6": {
+              "n": 1479,
+              "pos": 9,
+              "rate": 0.006085192697768763
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.4666666666666667,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_visit_adjacent_label": {
+          "n": 112266,
+          "n_pos": 4116,
+          "prevalence": 0.03666292555181444,
+          "auroc": 0.7021374926035403,
+          "ap_rank": 0.33325452533284344,
+          "ap_grouped": 0.08146894188519575,
+          "pr_auc_trapz": 0.3378742364536245,
+          "auprc": 0.33325452533284344,
+          "name": "prev0_visit_adjacent_label",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2325,
+              "rate": 0.10677872692201708
+            },
+            "2": {
+              "n": 25007,
+              "pos": 554,
+              "rate": 0.022153796936857678
+            },
+            "3": {
+              "n": 21577,
+              "pos": 385,
+              "rate": 0.01784307364323122
+            },
+            "4": {
+              "n": 20680,
+              "pos": 496,
+              "rate": 0.023984526112185687
+            },
+            "5": {
+              "n": 13771,
+              "pos": 216,
+              "rate": 0.015685135429525814
+            },
+            "6": {
+              "n": 5140,
+              "pos": 121,
+              "rate": 0.023540856031128404
+            },
+            "7": {
+              "n": 4317,
+              "pos": 19,
+              "rate": 0.004401204540189946
+            }
+          },
+          "max_visit_rate": 0.10677872692201708,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_visit_first_onset_label": {
+          "n": 112049,
+          "n_pos": 3936,
+          "prevalence": 0.03512748886647806,
+          "auroc": 0.7192073948580148,
+          "ap_rank": 0.34595111630473124,
+          "ap_grouped": 0.08282087647008109,
+          "pr_auc_trapz": 0.3507992573442727,
+          "auprc": 0.34595111630473124,
+          "name": "never_derm_visit_first_onset_label",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 21774,
+              "pos": 2325,
+              "rate": 0.10677872692201708
+            },
+            "2": {
+              "n": 24994,
+              "pos": 543,
+              "rate": 0.02172521405137233
+            },
+            "3": {
+              "n": 21505,
+              "pos": 327,
+              "rate": 0.015205766100906766
+            },
+            "4": {
+              "n": 20618,
+              "pos": 443,
+              "rate": 0.02148608012416335
+            },
+            "5": {
+              "n": 13728,
+              "pos": 178,
+              "rate": 0.012966200466200466
+            },
+            "6": {
+              "n": 5130,
+              "pos": 115,
+              "rate": 0.022417153996101363
+            },
+            "7": {
+              "n": 4300,
+              "pos": 5,
+              "rate": 0.0011627906976744186
+            }
+          },
+          "max_visit_rate": 0.10677872692201708,
+          "grouped_ap_le_max_visit_rate": true
+        }
+      }
+    },
+    "val": {
+      "split": "val",
+      "provenance": {
+        "n_lesion_visit_records": 18465,
+        "n_lesion_chains": 6502,
+        "n_adjacent_pairs_if_linear": 11963,
+        "n_participants": 35,
+        "adjacent_onset": 497,
+        "first_observed_onset": 487,
+        "repeat_presence": 1600,
+        "action_AcquireDerm": 492,
+        "adjacent_equals_action": 0,
+        "adjacent_not_first_observed": 10,
+        "first_observed_not_AcquireDerm": 5,
+        "chain_first_record_with_dermoscopy": 455,
+        "chain_first_record_AcquireDerm": 455,
+        "alignment_lesions": {
+          "none": 6484,
+          "visit": 6,
+          "lesion_level": 12
+        },
+        "excise_on_alignment_none_lesions": 0,
+        "excise_on_always_false_without_evidence": 0
+      },
+      "cohort_prev0": {
+        "general": {
+          "1": {
+            "n": 115,
+            "pos": 115,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 46,
+            "pos": 46,
+            "rate": 1.0
+          },
+          "3": {
+            "n": 18,
+            "pos": 18,
+            "rate": 1.0
+          },
+          "4": {
+            "n": 37,
+            "pos": 37,
+            "rate": 1.0
+          },
+          "5": {
+            "n": 339,
+            "pos": 15,
+            "rate": 0.04424778761061947
+          },
+          "6": {
+            "n": 445,
+            "pos": 13,
+            "rate": 0.029213483146067417
+          },
+          "7": {
+            "n": 363,
+            "pos": 1,
+            "rate": 0.0027548209366391185
+          },
+          "overall": {
+            "n": 1363,
+            "pos": 245,
+            "rate": 0.1797505502567865
+          }
+        },
+        "highrisk": {
+          "1": {
+            "n": 3836,
+            "pos": 181,
+            "rate": 0.047184567257559956
+          },
+          "2": {
+            "n": 3435,
+            "pos": 29,
+            "rate": 0.008442503639010189
+          },
+          "3": {
+            "n": 4810,
+            "pos": 19,
+            "rate": 0.00395010395010395
+          },
+          "4": {
+            "n": 3409,
+            "pos": 17,
+            "rate": 0.004986799647990613
+          },
+          "5": {
+            "n": 2,
+            "pos": 1,
+            "rate": 0.5
+          },
+          "overall": {
+            "n": 15492,
+            "pos": 247,
+            "rate": 0.0159437128840692
+          }
+        }
+      },
+      "ranking": {
+        "prev0_visit": {
+          "n": 16855,
+          "n_pos": 492,
+          "prevalence": 0.029190151290418274,
+          "auroc": 0.690437391219234,
+          "ap_rank": 0.3677680828009335,
+          "ap_grouped": 0.06022801224321831,
+          "pr_auc_trapz": 0.34124262896196594,
+          "auprc": 0.3677680828009335,
+          "name": "prev0_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4828,
+              "pos": 37,
+              "rate": 0.0076636288318144155
+            },
+            "4": {
+              "n": 3446,
+              "pos": 54,
+              "rate": 0.01567034242600116
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 445,
+              "pos": 13,
+              "rate": 0.029213483146067417
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_visit": {
+          "n": 16844,
+          "n_pos": 482,
+          "prevalence": 0.02861553075279031,
+          "auroc": 0.699723539666092,
+          "ap_rank": 0.3746210938923443,
+          "ap_grouped": 0.06073307355656658,
+          "pr_auc_trapz": 0.3475125608716862,
+          "auprc": 0.3746210938923443,
+          "name": "never_derm_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4824,
+              "pos": 33,
+              "rate": 0.006840796019900498
+            },
+            "4": {
+              "n": 3441,
+              "pos": 50,
+              "rate": 0.014530659691950014
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 444,
+              "pos": 12,
+              "rate": 0.02702702702702703
+            },
+            "7": {
+              "n": 362,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_exclude_chain_first_visit": {
+          "n": 10353,
+          "n_pos": 37,
+          "prevalence": 0.0035738433304356226,
+          "auroc": 0.5727969147899353,
+          "ap_rank": 0.03215026792468666,
+          "ap_grouped": 0.031150010858742173,
+          "pr_auc_trapz": 0.19269804231833457,
+          "auprc": 0.03215026792468666,
+          "name": "prev0_exclude_chain_first_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 1,
+              "pos": 1,
+              "rate": 1.0
+            },
+            "2": {
+              "n": 2782,
+              "pos": 12,
+              "rate": 0.004313443565780014
+            },
+            "3": {
+              "n": 3481,
+              "pos": 14,
+              "rate": 0.004021832806664752
+            },
+            "4": {
+              "n": 3400,
+              "pos": 8,
+              "rate": 0.002352941176470588
+            },
+            "5": {
+              "n": 1,
+              "pos": 0,
+              "rate": 0.0
+            },
+            "6": {
+              "n": 325,
+              "pos": 1,
+              "rate": 0.003076923076923077
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 1.0,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_exclude_chain_first_visit": {
+          "n": 10342,
+          "n_pos": 27,
+          "prevalence": 0.0026107135950493134,
+          "auroc": 0.6646918367713327,
+          "ap_rank": 0.04228168879784243,
+          "ap_grouped": 0.04088821279300469,
+          "pr_auc_trapz": 0.2623220446691419,
+          "auprc": 0.04228168879784243,
+          "name": "never_derm_exclude_chain_first_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 1,
+              "pos": 1,
+              "rate": 1.0
+            },
+            "2": {
+              "n": 2782,
+              "pos": 12,
+              "rate": 0.004313443565780014
+            },
+            "3": {
+              "n": 3477,
+              "pos": 10,
+              "rate": 0.0028760425654299686
+            },
+            "4": {
+              "n": 3395,
+              "pos": 4,
+              "rate": 0.00117820324005891
+            },
+            "5": {
+              "n": 1,
+              "pos": 0,
+              "rate": 0.0
+            },
+            "6": {
+              "n": 324,
+              "pos": 0,
+              "rate": 0.0
+            },
+            "7": {
+              "n": 362,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 1.0,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_cohort": {
+          "n": 16855,
+          "n_pos": 492,
+          "prevalence": 0.029190151290418274,
+          "auroc": 0.7148213001869675,
+          "ap_rank": 0.16354915586095,
+          "ap_grouped": 0.10416433370253253,
+          "pr_auc_trapz": 0.346186217576293,
+          "auprc": 0.16354915586095,
+          "name": "prev0_cohort",
+          "n_unique_scores": 2,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4828,
+              "pos": 37,
+              "rate": 0.0076636288318144155
+            },
+            "4": {
+              "n": 3446,
+              "pos": 54,
+              "rate": 0.01567034242600116
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 445,
+              "pos": 13,
+              "rate": 0.029213483146067417
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "prev0_cohort_visit": {
+          "n": 16855,
+          "n_pos": 492,
+          "prevalence": 0.029190151290418274,
+          "auroc": 0.8512002713836342,
+          "ap_rank": 0.5182788709784554,
+          "ap_grouped": 0.49420436176482146,
+          "pr_auc_trapz": 0.5247400570025814,
+          "auprc": 0.5182788709784554,
+          "name": "prev0_cohort_visit",
+          "n_unique_scores": 12,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4828,
+              "pos": 37,
+              "rate": 0.0076636288318144155
+            },
+            "4": {
+              "n": 3446,
+              "pos": 54,
+              "rate": 0.01567034242600116
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 445,
+              "pos": 13,
+              "rate": 0.029213483146067417
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "majority_prev0": {
+          "n": 16855,
+          "n_pos": 492,
+          "prevalence": 0.029190151290418274,
+          "auroc": 0.5,
+          "ap_rank": 0.16354915586095,
+          "ap_grouped": 0.029190151290418274,
+          "pr_auc_trapz": 0.5145950756452091,
+          "auprc": 0.16354915586095,
+          "name": "majority_prev0",
+          "n_unique_scores": 1,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4828,
+              "pos": 37,
+              "rate": 0.0076636288318144155
+            },
+            "4": {
+              "n": 3446,
+              "pos": 54,
+              "rate": 0.01567034242600116
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 445,
+              "pos": 13,
+              "rate": 0.029213483146067417
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_history": {
+          "n": 16855,
+          "n_pos": 492,
+          "prevalence": 0.029190151290418274,
+          "auroc": 0.8508555764070138,
+          "ap_rank": 0.5006314658916596,
+          "ap_grouped": 0.47321828704490826,
+          "pr_auc_trapz": 0.5107490788072212,
+          "auprc": 0.5006314658916596,
+          "name": "prev0_history",
+          "n_unique_scores": 57,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4828,
+              "pos": 37,
+              "rate": 0.0076636288318144155
+            },
+            "4": {
+              "n": 3446,
+              "pos": 54,
+              "rate": 0.01567034242600116
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 445,
+              "pos": 13,
+              "rate": 0.029213483146067417
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "never_derm_history": {
+          "n": 16844,
+          "n_pos": 482,
+          "prevalence": 0.02861553075279031,
+          "auroc": 0.864179271776878,
+          "ap_rank": 0.5102562047811596,
+          "ap_grouped": 0.4822835473210046,
+          "pr_auc_trapz": 0.5205758752585544,
+          "auprc": 0.5102562047811596,
+          "name": "never_derm_history",
+          "n_unique_scores": 57,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 75,
+              "rate": 0.021545532892846882
+            },
+            "3": {
+              "n": 4824,
+              "pos": 33,
+              "rate": 0.006840796019900498
+            },
+            "4": {
+              "n": 3441,
+              "pos": 50,
+              "rate": 0.014530659691950014
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 444,
+              "pos": 12,
+              "rate": 0.02702702702702703
+            },
+            "7": {
+              "n": 362,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "prev0_exclude_chain_first_history": {
+          "n": 10353,
+          "n_pos": 37,
+          "prevalence": 0.0035738433304356226,
+          "auroc": 0.5861466837135701,
+          "ap_rank": 0.032754583859008514,
+          "ap_grouped": 0.03254030208042891,
+          "pr_auc_trapz": 0.04699908363419556,
+          "auprc": 0.032754583859008514,
+          "name": "prev0_exclude_chain_first_history",
+          "n_unique_scores": 27,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 1,
+              "pos": 1,
+              "rate": 1.0
+            },
+            "2": {
+              "n": 2782,
+              "pos": 12,
+              "rate": 0.004313443565780014
+            },
+            "3": {
+              "n": 3481,
+              "pos": 14,
+              "rate": 0.004021832806664752
+            },
+            "4": {
+              "n": 3400,
+              "pos": 8,
+              "rate": 0.002352941176470588
+            },
+            "5": {
+              "n": 1,
+              "pos": 0,
+              "rate": 0.0
+            },
+            "6": {
+              "n": 325,
+              "pos": 1,
+              "rate": 0.003076923076923077
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 1.0,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_visit_adjacent_label": {
+          "n": 16855,
+          "n_pos": 497,
+          "prevalence": 0.02948679916938594,
+          "auroc": 0.6884496857658975,
+          "ap_rank": 0.3646598492724901,
+          "ap_grouped": 0.06018341333094304,
+          "pr_auc_trapz": 0.33843763223516027,
+          "auprc": 0.3646598492724901,
+          "name": "prev0_visit_adjacent_label",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 78,
+              "rate": 0.02240735420856076
+            },
+            "3": {
+              "n": 4828,
+              "pos": 38,
+              "rate": 0.007870753935376968
+            },
+            "4": {
+              "n": 3446,
+              "pos": 54,
+              "rate": 0.01567034242600116
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 445,
+              "pos": 14,
+              "rate": 0.03146067415730337
+            },
+            "7": {
+              "n": 363,
+              "pos": 1,
+              "rate": 0.0027548209366391185
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_visit_first_onset_label": {
+          "n": 16844,
+          "n_pos": 487,
+          "prevalence": 0.028912372358109714,
+          "auroc": 0.6975992796257127,
+          "ap_rank": 0.37137106942459674,
+          "ap_grouped": 0.060674670039857145,
+          "pr_auc_trapz": 0.3445776919041765,
+          "auprc": 0.37137106942459674,
+          "name": "never_derm_visit_first_onset_label",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 3951,
+              "pos": 296,
+              "rate": 0.07491774234371046
+            },
+            "2": {
+              "n": 3481,
+              "pos": 78,
+              "rate": 0.02240735420856076
+            },
+            "3": {
+              "n": 4824,
+              "pos": 34,
+              "rate": 0.007048092868988391
+            },
+            "4": {
+              "n": 3441,
+              "pos": 50,
+              "rate": 0.014530659691950014
+            },
+            "5": {
+              "n": 341,
+              "pos": 16,
+              "rate": 0.0469208211143695
+            },
+            "6": {
+              "n": 444,
+              "pos": 13,
+              "rate": 0.02927927927927928
+            },
+            "7": {
+              "n": 362,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 0.07491774234371046,
+          "grouped_ap_le_max_visit_rate": true
+        }
+      }
+    },
+    "test": {
+      "split": "test",
+      "provenance": {
+        "n_lesion_visit_records": 31241,
+        "n_lesion_chains": 12141,
+        "n_adjacent_pairs_if_linear": 19100,
+        "n_participants": 69,
+        "adjacent_onset": 1045,
+        "first_observed_onset": 1014,
+        "repeat_presence": 3172,
+        "action_AcquireDerm": 1032,
+        "adjacent_equals_action": 0,
+        "adjacent_not_first_observed": 31,
+        "first_observed_not_AcquireDerm": 13,
+        "chain_first_record_with_dermoscopy": 936,
+        "chain_first_record_AcquireDerm": 933,
+        "alignment_lesions": {
+          "none": 12102,
+          "lesion_level": 25,
+          "visit": 14
+        },
+        "excise_on_alignment_none_lesions": 0,
+        "excise_on_always_false_without_evidence": 0
+      },
+      "cohort_prev0": {
+        "general": {
+          "1": {
+            "n": 200,
+            "pos": 199,
+            "rate": 0.995
+          },
+          "2": {
+            "n": 41,
+            "pos": 41,
+            "rate": 1.0
+          },
+          "3": {
+            "n": 1535,
+            "pos": 62,
+            "rate": 0.040390879478827364
+          },
+          "4": {
+            "n": 2341,
+            "pos": 88,
+            "rate": 0.037590773173857325
+          },
+          "5": {
+            "n": 388,
+            "pos": 38,
+            "rate": 0.0979381443298969
+          },
+          "6": {
+            "n": 1375,
+            "pos": 11,
+            "rate": 0.008
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          },
+          "overall": {
+            "n": 6678,
+            "pos": 443,
+            "rate": 0.06633722671458521
+          }
+        },
+        "highrisk": {
+          "1": {
+            "n": 5122,
+            "pos": 430,
+            "rate": 0.08395158141351035
+          },
+          "2": {
+            "n": 4321,
+            "pos": 60,
+            "rate": 0.01388567461235825
+          },
+          "3": {
+            "n": 5022,
+            "pos": 50,
+            "rate": 0.009956192751891677
+          },
+          "4": {
+            "n": 4992,
+            "pos": 33,
+            "rate": 0.006610576923076923
+          },
+          "5": {
+            "n": 1919,
+            "pos": 16,
+            "rate": 0.008337675872850442
+          },
+          "overall": {
+            "n": 21376,
+            "pos": 589,
+            "rate": 0.02755426646706587
+          }
+        }
+      },
+      "ranking": {
+        "prev0_visit": {
+          "n": 28054,
+          "n_pos": 1032,
+          "prevalence": 0.03678619804662437,
+          "auroc": 0.731132585622166,
+          "ap_rank": 0.2966564140625026,
+          "ap_grouped": 0.09242986363719025,
+          "pr_auc_trapz": 0.3652275287827417,
+          "auprc": 0.2966564140625026,
+          "name": "prev0_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4362,
+              "pos": 101,
+              "rate": 0.023154516276937185
+            },
+            "3": {
+              "n": 6557,
+              "pos": 112,
+              "rate": 0.017080982156474
+            },
+            "4": {
+              "n": 7333,
+              "pos": 121,
+              "rate": 0.01650075003409246
+            },
+            "5": {
+              "n": 2307,
+              "pos": 54,
+              "rate": 0.02340702210663199
+            },
+            "6": {
+              "n": 1375,
+              "pos": 11,
+              "rate": 0.008
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_visit": {
+          "n": 28020,
+          "n_pos": 1001,
+          "prevalence": 0.03572448251249108,
+          "auroc": 0.7440155610332153,
+          "ap_rank": 0.3040623449769649,
+          "ap_grouped": 0.0936556181608622,
+          "pr_auc_trapz": 0.37474084760054244,
+          "auprc": 0.3040623449769649,
+          "name": "never_derm_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4359,
+              "pos": 98,
+              "rate": 0.022482220692819455
+            },
+            "3": {
+              "n": 6550,
+              "pos": 106,
+              "rate": 0.01618320610687023
+            },
+            "4": {
+              "n": 7320,
+              "pos": 109,
+              "rate": 0.014890710382513661
+            },
+            "5": {
+              "n": 2303,
+              "pos": 50,
+              "rate": 0.021710811984368215
+            },
+            "6": {
+              "n": 1373,
+              "pos": 9,
+              "rate": 0.0065549890750182084
+            },
+            "7": {
+              "n": 793,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_exclude_chain_first_visit": {
+          "n": 15913,
+          "n_pos": 99,
+          "prevalence": 0.0062213284735750645,
+          "auroc": 0.4898989898989899,
+          "ap_rank": 0.015874972690178474,
+          "ap_grouped": 0.016042226672215738,
+          "pr_auc_trapz": 0.10131205378259975,
+          "auprc": 0.015874972690178474,
+          "name": "prev0_exclude_chain_first_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 1,
+              "pos": 1,
+              "rate": 1.0
+            },
+            "2": {
+              "n": 3631,
+              "pos": 17,
+              "rate": 0.00468190581107133
+            },
+            "3": {
+              "n": 3314,
+              "pos": 26,
+              "rate": 0.007845503922751962
+            },
+            "4": {
+              "n": 5167,
+              "pos": 29,
+              "rate": 0.005612541126378943
+            },
+            "5": {
+              "n": 2201,
+              "pos": 18,
+              "rate": 0.00817810086324398
+            },
+            "6": {
+              "n": 801,
+              "pos": 4,
+              "rate": 0.004993757802746567
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 1.0,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_exclude_chain_first_visit": {
+          "n": 15879,
+          "n_pos": 68,
+          "prevalence": 0.0042823855406511745,
+          "auroc": 0.5307794833827529,
+          "ap_rank": 0.01899239556270407,
+          "ap_grouped": 0.019199960922679858,
+          "pr_auc_trapz": 0.12164340647201477,
+          "auprc": 0.01899239556270407,
+          "name": "never_derm_exclude_chain_first_visit",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 1,
+              "pos": 1,
+              "rate": 1.0
+            },
+            "2": {
+              "n": 3628,
+              "pos": 14,
+              "rate": 0.003858875413450937
+            },
+            "3": {
+              "n": 3307,
+              "pos": 20,
+              "rate": 0.0060477774417901425
+            },
+            "4": {
+              "n": 5154,
+              "pos": 17,
+              "rate": 0.0032984090027163367
+            },
+            "5": {
+              "n": 2197,
+              "pos": 14,
+              "rate": 0.0063723258989531175
+            },
+            "6": {
+              "n": 799,
+              "pos": 2,
+              "rate": 0.0025031289111389237
+            },
+            "7": {
+              "n": 793,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 1.0,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_cohort": {
+          "n": 28054,
+          "n_pos": 1032,
+          "prevalence": 0.03678619804662437,
+          "auroc": 0.5992628243194319,
+          "ap_rank": 0.0638324375721917,
+          "ap_grouped": 0.04947137798839438,
+          "pr_auc_trapz": 0.25829800805179925,
+          "auprc": 0.0638324375721917,
+          "name": "prev0_cohort",
+          "n_unique_scores": 2,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4362,
+              "pos": 101,
+              "rate": 0.023154516276937185
+            },
+            "3": {
+              "n": 6557,
+              "pos": 112,
+              "rate": 0.017080982156474
+            },
+            "4": {
+              "n": 7333,
+              "pos": 121,
+              "rate": 0.01650075003409246
+            },
+            "5": {
+              "n": 2307,
+              "pos": 54,
+              "rate": 0.02340702210663199
+            },
+            "6": {
+              "n": 1375,
+              "pos": 11,
+              "rate": 0.008
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_cohort_visit": {
+          "n": 28054,
+          "n_pos": 1032,
+          "prevalence": 0.03678619804662437,
+          "auroc": 0.748270788831839,
+          "ap_rank": 0.302034216120679,
+          "ap_grouped": 0.292530966924354,
+          "pr_auc_trapz": 0.3204220294928425,
+          "auprc": 0.302034216120679,
+          "name": "prev0_cohort_visit",
+          "n_unique_scores": 12,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 5,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4362,
+              "pos": 101,
+              "rate": 0.023154516276937185
+            },
+            "3": {
+              "n": 6557,
+              "pos": 112,
+              "rate": 0.017080982156474
+            },
+            "4": {
+              "n": 7333,
+              "pos": 121,
+              "rate": 0.01650075003409246
+            },
+            "5": {
+              "n": 2307,
+              "pos": 54,
+              "rate": 0.02340702210663199
+            },
+            "6": {
+              "n": 1375,
+              "pos": 11,
+              "rate": 0.008
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "majority_prev0": {
+          "n": 28054,
+          "n_pos": 1032,
+          "prevalence": 0.03678619804662437,
+          "auroc": 0.5,
+          "ap_rank": 0.0638324375721917,
+          "ap_grouped": 0.03678619804662437,
+          "pr_auc_trapz": 0.5183930990233122,
+          "auprc": 0.0638324375721917,
+          "name": "majority_prev0",
+          "n_unique_scores": 1,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4362,
+              "pos": 101,
+              "rate": 0.023154516276937185
+            },
+            "3": {
+              "n": 6557,
+              "pos": 112,
+              "rate": 0.017080982156474
+            },
+            "4": {
+              "n": 7333,
+              "pos": 121,
+              "rate": 0.01650075003409246
+            },
+            "5": {
+              "n": 2307,
+              "pos": 54,
+              "rate": 0.02340702210663199
+            },
+            "6": {
+              "n": 1375,
+              "pos": 11,
+              "rate": 0.008
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_history": {
+          "n": 28054,
+          "n_pos": 1032,
+          "prevalence": 0.03678619804662437,
+          "auroc": 0.7911181436142471,
+          "ap_rank": 0.3137882634061702,
+          "ap_grouped": 0.3120792029475952,
+          "pr_auc_trapz": 0.3162340486230516,
+          "auprc": 0.3137882634061702,
+          "name": "prev0_history",
+          "n_unique_scores": 60,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4362,
+              "pos": 101,
+              "rate": 0.023154516276937185
+            },
+            "3": {
+              "n": 6557,
+              "pos": 112,
+              "rate": 0.017080982156474
+            },
+            "4": {
+              "n": 7333,
+              "pos": 121,
+              "rate": 0.01650075003409246
+            },
+            "5": {
+              "n": 2307,
+              "pos": 54,
+              "rate": 0.02340702210663199
+            },
+            "6": {
+              "n": 1375,
+              "pos": 11,
+              "rate": 0.008
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "never_derm_history": {
+          "n": 28020,
+          "n_pos": 1001,
+          "prevalence": 0.03572448251249108,
+          "auroc": 0.8014968857339041,
+          "ap_rank": 0.32074259688017837,
+          "ap_grouped": 0.3190753868674639,
+          "pr_auc_trapz": 0.3232238233570667,
+          "auprc": 0.32074259688017837,
+          "name": "never_derm_history",
+          "n_unique_scores": 60,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 7,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 629,
+              "rate": 0.11818865088312665
+            },
+            "2": {
+              "n": 4359,
+              "pos": 98,
+              "rate": 0.022482220692819455
+            },
+            "3": {
+              "n": 6550,
+              "pos": 106,
+              "rate": 0.01618320610687023
+            },
+            "4": {
+              "n": 7320,
+              "pos": 109,
+              "rate": 0.014890710382513661
+            },
+            "5": {
+              "n": 2303,
+              "pos": 50,
+              "rate": 0.021710811984368215
+            },
+            "6": {
+              "n": 1373,
+              "pos": 9,
+              "rate": 0.0065549890750182084
+            },
+            "7": {
+              "n": 793,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 0.11818865088312665,
+          "grouped_ap_le_max_visit_rate": false
+        },
+        "prev0_exclude_chain_first_history": {
+          "n": 15913,
+          "n_pos": 99,
+          "prevalence": 0.0062213284735750645,
+          "auroc": 0.5826575480363263,
+          "ap_rank": 0.011628694581493028,
+          "ap_grouped": 0.00842732460592182,
+          "pr_auc_trapz": 0.013287055864841819,
+          "auprc": 0.011628694581493028,
+          "name": "prev0_exclude_chain_first_history",
+          "n_unique_scores": 41,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 6,
+            "ok": false
+          },
+          "visit_rates": {
+            "1": {
+              "n": 1,
+              "pos": 1,
+              "rate": 1.0
+            },
+            "2": {
+              "n": 3631,
+              "pos": 17,
+              "rate": 0.00468190581107133
+            },
+            "3": {
+              "n": 3314,
+              "pos": 26,
+              "rate": 0.007845503922751962
+            },
+            "4": {
+              "n": 5167,
+              "pos": 29,
+              "rate": 0.005612541126378943
+            },
+            "5": {
+              "n": 2201,
+              "pos": 18,
+              "rate": 0.00817810086324398
+            },
+            "6": {
+              "n": 801,
+              "pos": 4,
+              "rate": 0.004993757802746567
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 1.0,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "prev0_visit_adjacent_label": {
+          "n": 28054,
+          "n_pos": 1045,
+          "prevalence": 0.03724959007628146,
+          "auroc": 0.7276082525034628,
+          "ap_rank": 0.29659917978135397,
+          "ap_grouped": 0.09225700878644333,
+          "pr_auc_trapz": 0.3621241742197291,
+          "auprc": 0.29659917978135397,
+          "name": "prev0_visit_adjacent_label",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 630,
+              "rate": 0.11837655016910936
+            },
+            "2": {
+              "n": 4362,
+              "pos": 104,
+              "rate": 0.02384227418615314
+            },
+            "3": {
+              "n": 6557,
+              "pos": 114,
+              "rate": 0.017385999694982463
+            },
+            "4": {
+              "n": 7333,
+              "pos": 126,
+              "rate": 0.017182599209054957
+            },
+            "5": {
+              "n": 2307,
+              "pos": 54,
+              "rate": 0.02340702210663199
+            },
+            "6": {
+              "n": 1375,
+              "pos": 13,
+              "rate": 0.009454545454545455
+            },
+            "7": {
+              "n": 798,
+              "pos": 4,
+              "rate": 0.005012531328320802
+            }
+          },
+          "max_visit_rate": 0.11837655016910936,
+          "grouped_ap_le_max_visit_rate": true
+        },
+        "never_derm_visit_first_onset_label": {
+          "n": 28020,
+          "n_pos": 1014,
+          "prevalence": 0.03618843683083512,
+          "auroc": 0.740218588286539,
+          "ap_rank": 0.3038886956726398,
+          "ap_grouped": 0.09344054890847193,
+          "pr_auc_trapz": 0.371401627067167,
+          "auprc": 0.3038886956726398,
+          "name": "never_derm_visit_first_onset_label",
+          "n_unique_scores": 7,
+          "visit_constant_scores": {
+            "n_groups": 7,
+            "n_groups_with_multiple_scores": 0,
+            "ok": true
+          },
+          "visit_rates": {
+            "1": {
+              "n": 5322,
+              "pos": 630,
+              "rate": 0.11837655016910936
+            },
+            "2": {
+              "n": 4359,
+              "pos": 101,
+              "rate": 0.023170451938518008
+            },
+            "3": {
+              "n": 6550,
+              "pos": 108,
+              "rate": 0.01648854961832061
+            },
+            "4": {
+              "n": 7320,
+              "pos": 114,
+              "rate": 0.01557377049180328
+            },
+            "5": {
+              "n": 2303,
+              "pos": 50,
+              "rate": 0.021710811984368215
+            },
+            "6": {
+              "n": 1373,
+              "pos": 11,
+              "rate": 0.008011653313911144
+            },
+            "7": {
+              "n": 793,
+              "pos": 0,
+              "rate": 0.0
+            }
+          },
+          "max_visit_rate": 0.11837655016910936,
+          "grouped_ap_le_max_visit_rate": true
+        }
+      }
+    }
+  },
+  "actual_features": {
+    "history_vector": [
+      "prev_derm_visible (constant 0 on prev0)",
+      "visit/10",
+      "cohort high-risk indicator",
+      "naevus count / freckling / prior excision / family history from participant meta",
+      "anatomical site one-hot"
+    ],
+    "note": "Empty participant meta zeroes the numeric patient fields."
+  },
+  "closeout": {
+    "actual_features_on_test": {
+      "n": 31241,
+      "meta_empty": 31241,
+      "usable_on_prev0": [
+        "visit",
+        "cohort",
+        "anatomical site"
+      ],
+      "constant_on_prev0": [
+        "prev_derm_visible"
+      ]
+    },
+    "acquire_sources": {
+      "train": {
+        "chain_first_present": 3711,
+        "re_onset": 180,
+        "later_first_observed": 200,
+        "total_AcquireDerm": 4091
+      },
+      "val": {
+        "chain_first_present": 455,
+        "re_onset": 10,
+        "later_first_observed": 27,
+        "total_AcquireDerm": 492
+      },
+      "test": {
+        "chain_first_present": 933,
+        "later_first_observed": 68,
+        "re_onset": 31,
+        "total_AcquireDerm": 1032
+      }
+    },
+    "chain_integrity": {
+      "train": {
+        "n_chains": 47509,
+        "n_multi_patient_chains": 0,
+        "n_chains_with_duplicate_visit": 75,
+        "n_chains_unsorted_in_file_order": 0,
+        "ordered_by": "visit then tile_id"
+      },
+      "val": {
+        "n_chains": 6502,
+        "n_multi_patient_chains": 0,
+        "n_chains_with_duplicate_visit": 4,
+        "n_chains_unsorted_in_file_order": 0,
+        "ordered_by": "visit then tile_id"
+      },
+      "test": {
+        "n_chains": 12141,
+        "n_multi_patient_chains": 0,
+        "n_chains_with_duplicate_visit": 18,
+        "n_chains_unsorted_in_file_order": 0,
+        "ordered_by": "visit then tile_id"
+      }
+    },
+    "exclude_chain_first_visit_groups": {
+      "1": {
+        "n": 1,
+        "pos": 1,
+        "rate": 1.0,
+        "score_min": -1.0,
+        "score_max": -1.0,
+        "n_unique_scores": 1
+      },
+      "2": {
+        "n": 3631,
+        "pos": 17,
+        "rate": 0.00468190581107133,
+        "score_min": -2.0,
+        "score_max": -2.0,
+        "n_unique_scores": 1
+      },
+      "3": {
+        "n": 3314,
+        "pos": 26,
+        "rate": 0.007845503922751962,
+        "score_min": -3.0,
+        "score_max": -3.0,
+        "n_unique_scores": 1
+      },
+      "4": {
+        "n": 5167,
+        "pos": 29,
+        "rate": 0.005612541126378943,
+        "score_min": -4.0,
+        "score_max": -4.0,
+        "n_unique_scores": 1
+      },
+      "5": {
+        "n": 2201,
+        "pos": 18,
+        "rate": 0.00817810086324398,
+        "score_min": -5.0,
+        "score_max": -5.0,
+        "n_unique_scores": 1
+      },
+      "6": {
+        "n": 801,
+        "pos": 4,
+        "rate": 0.004993757802746567,
+        "score_min": -6.0,
+        "score_max": -6.0,
+        "n_unique_scores": 1
+      },
+      "7": {
+        "n": 798,
+        "pos": 4,
+        "rate": 0.005012531328320802,
+        "score_min": -7.0,
+        "score_max": -7.0,
+        "n_unique_scores": 1
+      }
+    },
+    "exclude_chain_first_visit_drop_visit1_singleton": {
+      "n": 15912,
+      "n_pos": 98,
+      "prevalence": 0.006158873805932629,
+      "auroc": 0.4846938775510204,
+      "ap_rank": 0.005654192483702426,
+      "ap_grouped": 0.005874076007052545,
+      "pr_auc_trapz": 0.09201006894479068,
+      "auprc": 0.005654192483702426,
+      "name": "drop_visit1_n1",
+      "n_unique_scores": 6,
+      "visit_constant_scores": {
+        "n_groups": 6,
+        "n_groups_with_multiple_scores": 0,
+        "ok": true
+      },
+      "visit_rates": {
+        "2": {
+          "n": 3631,
+          "pos": 17,
+          "rate": 0.00468190581107133
+        },
+        "3": {
+          "n": 3314,
+          "pos": 26,
+          "rate": 0.007845503922751962
+        },
+        "4": {
+          "n": 5167,
+          "pos": 29,
+          "rate": 0.005612541126378943
+        },
+        "5": {
+          "n": 2201,
+          "pos": 18,
+          "rate": 0.00817810086324398
+        },
+        "6": {
+          "n": 801,
+          "pos": 4,
+          "rate": 0.004993757802746567
+        },
+        "7": {
+          "n": 798,
+          "pos": 4,
+          "rate": 0.005012531328320802
+        }
+      },
+      "max_visit_rate": 0.00817810086324398,
+      "grouped_ap_le_max_visit_rate": true
+    },
+    "permute_visit_prev0": {
+      "n_perm": 30,
+      "ap_rank_original": 0.2966564140625026,
+      "ap_standard_original": 0.09242986363719025,
+      "ap_rank_perm_min": 0.09230976641415899,
+      "ap_rank_perm_max": 0.10162469333571868,
+      "ap_rank_perm_mean": 0.09644439913082624,
+      "ap_standard_invariant": true
+    },
+    "train_fitted_cohort_visit_lookup": {
+      "fit": {
+        "cells": {
+          "general|1": {
+            "n": 892,
+            "pos": 888,
+            "rate": 0.9955156950672646
+          },
+          "general|2": {
+            "n": 244,
+            "pos": 242,
+            "rate": 0.9918032786885246
+          },
+          "general|3": {
+            "n": 3616,
+            "pos": 213,
+            "rate": 0.05890486725663717
+          },
+          "general|4": {
+            "n": 6007,
+            "pos": 348,
+            "rate": 0.05793241218578325
+          },
+          "general|5": {
+            "n": 4727,
+            "pos": 120,
+            "rate": 0.025386079966151893
+          },
+          "general|6": {
+            "n": 5140,
+            "pos": 121,
+            "rate": 0.023540856031128404
+          },
+          "general|7": {
+            "n": 4317,
+            "pos": 19,
+            "rate": 0.004401204540189946
+          },
+          "highrisk|1": {
+            "n": 20882,
+            "pos": 1424,
+            "rate": 0.06819270184848195
+          },
+          "highrisk|2": {
+            "n": 24763,
+            "pos": 307,
+            "rate": 0.012397528570851675
+          },
+          "highrisk|3": {
+            "n": 17961,
+            "pos": 168,
+            "rate": 0.009353599465508603
+          },
+          "highrisk|4": {
+            "n": 14673,
+            "pos": 146,
+            "rate": 0.009950248756218905
+          },
+          "highrisk|5": {
+            "n": 9044,
+            "pos": 95,
+            "rate": 0.01050420168067227
+          }
+        },
+        "cohort_rates": {
+          "general": 0.07821833781020728,
+          "highrisk": 0.024506716443548664
+        },
+        "global_rate": 0.03644024014394385,
+        "fit_split": "train",
+        "empty_cell_backoff": "cohort then global train prevalence"
+      },
+      "test_prev0": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.8094857319818075,
+        "ap_rank": 0.34376589175635275,
+        "ap_grouped": 0.3093015201128494,
+        "pr_auc_trapz": 0.49346658703702784,
+        "auprc": 0.34376589175635275,
+        "name": "lookup_prev0",
+        "n_unique_scores": 12,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 5,
+          "ok": false
+        },
+        "visit_rates": {
+          "1": {
+            "n": 5322,
+            "pos": 629,
+            "rate": 0.11818865088312665
+          },
+          "2": {
+            "n": 4362,
+            "pos": 101,
+            "rate": 0.023154516276937185
+          },
+          "3": {
+            "n": 6557,
+            "pos": 112,
+            "rate": 0.017080982156474
+          },
+          "4": {
+            "n": 7333,
+            "pos": 121,
+            "rate": 0.01650075003409246
+          },
+          "5": {
+            "n": 2307,
+            "pos": 54,
+            "rate": 0.02340702210663199
+          },
+          "6": {
+            "n": 1375,
+            "pos": 11,
+            "rate": 0.008
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 0.11818865088312665,
+        "grouped_ap_le_max_visit_rate": false
+      },
+      "test_prev0_score_source": {
+        "cell": 31241
+      }
+    },
+    "exclude_chain_first_protocol": {
+      "rescore": "model trained on all train records; score test chain_index>0",
+      "retrain": "train on train chain_index>0 and prev0; score the same test subset"
+    },
+    "exclude_chain_first_rescore": {
+      "visit": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.4898989898989899,
+        "ap_rank": 0.015874972690178474,
+        "ap_grouped": 0.016042226672215738,
+        "pr_auc_trapz": 0.10131205378259975,
+        "auprc": 0.015874972690178474,
+        "name": "rescore_visit",
+        "n_unique_scores": 7,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 0,
+          "ok": true
+        },
+        "visit_rates": {
+          "1": {
+            "n": 1,
+            "pos": 1,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 3631,
+            "pos": 17,
+            "rate": 0.00468190581107133
+          },
+          "3": {
+            "n": 3314,
+            "pos": 26,
+            "rate": 0.007845503922751962
+          },
+          "4": {
+            "n": 5167,
+            "pos": 29,
+            "rate": 0.005612541126378943
+          },
+          "5": {
+            "n": 2201,
+            "pos": 18,
+            "rate": 0.00817810086324398
+          },
+          "6": {
+            "n": 801,
+            "pos": 4,
+            "rate": 0.004993757802746567
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 1.0,
+        "grouped_ap_le_max_visit_rate": true
+      },
+      "lookup": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.4660127262251962,
+        "ap_rank": 0.016119742445970732,
+        "ap_grouped": 0.015796879394374137,
+        "pr_auc_trapz": 0.06595542178101371,
+        "auprc": 0.016119742445970732,
+        "name": "rescore_lookup",
+        "n_unique_scores": 9,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 2,
+          "ok": false
+        },
+        "visit_rates": {
+          "1": {
+            "n": 1,
+            "pos": 1,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 3631,
+            "pos": 17,
+            "rate": 0.00468190581107133
+          },
+          "3": {
+            "n": 3314,
+            "pos": 26,
+            "rate": 0.007845503922751962
+          },
+          "4": {
+            "n": 5167,
+            "pos": 29,
+            "rate": 0.005612541126378943
+          },
+          "5": {
+            "n": 2201,
+            "pos": 18,
+            "rate": 0.00817810086324398
+          },
+          "6": {
+            "n": 801,
+            "pos": 4,
+            "rate": 0.004993757802746567
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 1.0,
+        "grouped_ap_le_max_visit_rate": true
+      },
+      "history": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.5826575480363263,
+        "ap_rank": 0.011628694581493028,
+        "ap_grouped": 0.00842732460592182,
+        "pr_auc_trapz": 0.013287055864841819,
+        "auprc": 0.011628694581493028,
+        "name": "rescore_history",
+        "n_unique_scores": 41,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 6,
+          "ok": false
+        },
+        "visit_rates": {
+          "1": {
+            "n": 1,
+            "pos": 1,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 3631,
+            "pos": 17,
+            "rate": 0.00468190581107133
+          },
+          "3": {
+            "n": 3314,
+            "pos": 26,
+            "rate": 0.007845503922751962
+          },
+          "4": {
+            "n": 5167,
+            "pos": 29,
+            "rate": 0.005612541126378943
+          },
+          "5": {
+            "n": 2201,
+            "pos": 18,
+            "rate": 0.00817810086324398
+          },
+          "6": {
+            "n": 801,
+            "pos": 4,
+            "rate": 0.004993757802746567
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 1.0,
+        "grouped_ap_le_max_visit_rate": true
+      }
+    },
+    "permute_history_prev0": {
+      "n_perm": 30,
+      "ap_rank_original": 0.3137882634061702,
+      "ap_standard_original": 0.3120792029475952,
+      "ap_rank_perm_min": 0.31430908739638524,
+      "ap_rank_perm_max": 0.3178505681883651,
+      "ap_rank_perm_mean": 0.31609601890989325,
+      "ap_standard_invariant": true
+    },
+    "exclude_chain_first_retrain": {
+      "n_train": 64757,
+      "visit": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.4898989898989899,
+        "ap_rank": 0.015874972690178474,
+        "ap_grouped": 0.016042226672215738,
+        "pr_auc_trapz": 0.10131205378259975,
+        "auprc": 0.015874972690178474,
+        "name": "retrain_visit",
+        "n_unique_scores": 7,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 0,
+          "ok": true
+        },
+        "visit_rates": {
+          "1": {
+            "n": 1,
+            "pos": 1,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 3631,
+            "pos": 17,
+            "rate": 0.00468190581107133
+          },
+          "3": {
+            "n": 3314,
+            "pos": 26,
+            "rate": 0.007845503922751962
+          },
+          "4": {
+            "n": 5167,
+            "pos": 29,
+            "rate": 0.005612541126378943
+          },
+          "5": {
+            "n": 2201,
+            "pos": 18,
+            "rate": 0.00817810086324398
+          },
+          "6": {
+            "n": 801,
+            "pos": 4,
+            "rate": 0.004993757802746567
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 1.0,
+        "grouped_ap_le_max_visit_rate": true
+      },
+      "lookup": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.4660127262251962,
+        "ap_rank": 0.016119742445970732,
+        "ap_grouped": 0.015796879394374137,
+        "pr_auc_trapz": 0.06595542178101371,
+        "auprc": 0.016119742445970732,
+        "name": "retrain_lookup",
+        "n_unique_scores": 9,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 2,
+          "ok": false
+        },
+        "visit_rates": {
+          "1": {
+            "n": 1,
+            "pos": 1,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 3631,
+            "pos": 17,
+            "rate": 0.00468190581107133
+          },
+          "3": {
+            "n": 3314,
+            "pos": 26,
+            "rate": 0.007845503922751962
+          },
+          "4": {
+            "n": 5167,
+            "pos": 29,
+            "rate": 0.005612541126378943
+          },
+          "5": {
+            "n": 2201,
+            "pos": 18,
+            "rate": 0.00817810086324398
+          },
+          "6": {
+            "n": 801,
+            "pos": 4,
+            "rate": 0.004993757802746567
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 1.0,
+        "grouped_ap_le_max_visit_rate": true
+      },
+      "history": {
+        "n": 15913,
+        "n_pos": 99,
+        "prevalence": 0.0062213284735750645,
+        "auroc": 0.5273932572212577,
+        "ap_rank": 0.010653240898998342,
+        "ap_grouped": 0.007349306124280169,
+        "pr_auc_trapz": 0.012221779937630494,
+        "auprc": 0.010653240898998342,
+        "name": "retrain_history",
+        "n_unique_scores": 41,
+        "visit_constant_scores": {
+          "n_groups": 7,
+          "n_groups_with_multiple_scores": 6,
+          "ok": false
+        },
+        "visit_rates": {
+          "1": {
+            "n": 1,
+            "pos": 1,
+            "rate": 1.0
+          },
+          "2": {
+            "n": 3631,
+            "pos": 17,
+            "rate": 0.00468190581107133
+          },
+          "3": {
+            "n": 3314,
+            "pos": 26,
+            "rate": 0.007845503922751962
+          },
+          "4": {
+            "n": 5167,
+            "pos": 29,
+            "rate": 0.005612541126378943
+          },
+          "5": {
+            "n": 2201,
+            "pos": 18,
+            "rate": 0.00817810086324398
+          },
+          "6": {
+            "n": 801,
+            "pos": 4,
+            "rate": 0.004993757802746567
+          },
+          "7": {
+            "n": 798,
+            "pos": 4,
+            "rate": 0.005012531328320802
+          }
+        },
+        "max_visit_rate": 1.0,
+        "grouped_ap_le_max_visit_rate": true
+      }
+    }
+  }
+}

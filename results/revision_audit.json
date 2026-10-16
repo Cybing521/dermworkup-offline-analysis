@@ -1,0 +1,387 @@
+{
+  "n_train": 124454,
+  "n_test": 31241,
+  "lookup_score_source_all_test": {
+    "cell": 31241
+  },
+  "lookup_score_source_prev0": {
+    "cell": 28054
+  },
+  "lookup_score_source_prev0_n": 28054,
+  "chain_length_hist": {
+    "1": 14,
+    "2": 37433,
+    "3": 12752,
+    "4": 6040,
+    "5": 2561,
+    "6": 381,
+    "7": 453,
+    "8": 10,
+    "9": 3,
+    "10": 3
+  },
+  "n_chains": 59650,
+  "test_prev0_sites": {
+    "torso back": 10293,
+    "leg": 6176,
+    "torso front": 5279,
+    "arm": 4679,
+    "other": 1627
+  },
+  "n_anatomical_site_bins": 6,
+  "endpoint_overwrite_test": {
+    "n": 13,
+    "n_cancer": 4,
+    "n_melanoma": 0,
+    "alignment": {
+      "visit": 13
+    },
+    "diagnosis": {
+      "basal cell carcinoma": 3,
+      "seborrheic keratosis": 2,
+      "squamous cell carcinoma": 1,
+      "solar lentigo": 1,
+      "atypical melanocytic proliferation": 3,
+      "nevus": 2,
+      "dermatofibroma": 1
+    },
+    "rows": [
+      {
+        "cancer": 1,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "basal cell carcinoma",
+        "action": "ReferExcise",
+        "visit": 6,
+        "cohort": "general"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "seborrheic keratosis",
+        "action": "ReferExcise",
+        "visit": 1,
+        "cohort": "general"
+      },
+      {
+        "cancer": 1,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "basal cell carcinoma",
+        "action": "ReferExcise",
+        "visit": 4,
+        "cohort": "general"
+      },
+      {
+        "cancer": 1,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "basal cell carcinoma",
+        "action": "ReferExcise",
+        "visit": 6,
+        "cohort": "general"
+      },
+      {
+        "cancer": 1,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "squamous cell carcinoma",
+        "action": "ReferExcise",
+        "visit": 4,
+        "cohort": "general"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "solar lentigo",
+        "action": "ReferExcise",
+        "visit": 2,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "seborrheic keratosis",
+        "action": "ReferExcise",
+        "visit": 3,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "atypical melanocytic proliferation",
+        "action": "ReferExcise",
+        "visit": 2,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "nevus",
+        "action": "ReferExcise",
+        "visit": 3,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "atypical melanocytic proliferation",
+        "action": "ReferExcise",
+        "visit": 2,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "nevus",
+        "action": "ReferExcise",
+        "visit": 4,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "dermatofibroma",
+        "action": "ReferExcise",
+        "visit": 4,
+        "cohort": "highrisk"
+      },
+      {
+        "cancer": 0,
+        "melanoma": 0,
+        "alignment": "visit",
+        "diagnosis": "atypical melanocytic proliferation",
+        "action": "ReferExcise",
+        "visit": 4,
+        "cohort": "highrisk"
+      }
+    ]
+  },
+  "test_endpoint_records": {
+    "n": 39,
+    "n_cancer_flag": 13,
+    "diagnosis": {
+      "seborrheic keratosis": 4,
+      "basal cell carcinoma": 5,
+      "squamous cell carcinoma": 4,
+      "atypical melanocytic proliferation": 7,
+      "melanoma": 4,
+      "solar lentigo": 3,
+      "nevus": 8,
+      "dermatofibroma": 1,
+      "other": 1,
+      "lentigo nos": 1,
+      "scar": 1
+    }
+  },
+  "test_next_tile_id_present": {
+    "n": 19100,
+    "n_test": 31241,
+    "rate": 0.6113760763099773
+  },
+  "file_order_within_visit_prev0": {
+    "1": {
+      "n": 5322,
+      "n_pos": 629,
+      "mean_pos_frac": 0.39316067452087883,
+      "frac_pos_in_first_half": 0.6009538950715422
+    },
+    "2": {
+      "n": 4362,
+      "n_pos": 101,
+      "mean_pos_frac": 0.3720601823998038,
+      "frac_pos_in_first_half": 0.5346534653465347
+    },
+    "3": {
+      "n": 6557,
+      "n_pos": 112,
+      "mean_pos_frac": 0.3898296544059967,
+      "frac_pos_in_first_half": 0.6607142857142857
+    },
+    "4": {
+      "n": 7333,
+      "n_pos": 121,
+      "mean_pos_frac": 0.34338211756006726,
+      "frac_pos_in_first_half": 0.7768595041322314
+    },
+    "5": {
+      "n": 2307,
+      "n_pos": 54,
+      "mean_pos_frac": 0.2236356043814847,
+      "frac_pos_in_first_half": 0.8518518518518519
+    },
+    "6": {
+      "n": 1375,
+      "n_pos": 11,
+      "mean_pos_frac": 0.6366944554717481,
+      "frac_pos_in_first_half": 0.45454545454545453
+    },
+    "7": {
+      "n": 798,
+      "n_pos": 4,
+      "mean_pos_frac": 0.501254705144291,
+      "frac_pos_in_first_half": 0.25
+    }
+  },
+  "label_sensitivity_prev0": {
+    "current_action": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.731132585622166,
+        "ap_rank": 0.2966564140625026,
+        "ap_grouped": 0.09242986363719025,
+        "pr_auc_trapz": 0.3652275287827417,
+        "auprc": 0.2966564140625026
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.8094857319818075,
+        "ap_rank": 0.34376589175635275,
+        "ap_grouped": 0.3093015201128494,
+        "pr_auc_trapz": 0.49346658703702784,
+        "auprc": 0.34376589175635275
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1032,
+        "prevalence": 0.03678619804662437,
+        "auroc": 0.7905045895707145,
+        "ap_rank": 0.314240079872441,
+        "ap_grouped": 0.3120287553720054,
+        "pr_auc_trapz": 0.31716533746705317,
+        "auprc": 0.314240079872441
+      }
+    },
+    "adjacent_no_endpoint": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.7276082525034628,
+        "ap_rank": 0.29659917978135397,
+        "ap_grouped": 0.09225700878644333,
+        "pr_auc_trapz": 0.3621241742197291,
+        "auprc": 0.29659917978135397
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.8056868869334889,
+        "ap_rank": 0.34327954556889095,
+        "ap_grouped": 0.30843059481579993,
+        "pr_auc_trapz": 0.49072594717001394,
+        "auprc": 0.34327954556889095
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1045,
+        "prevalence": 0.03724959007628146,
+        "auroc": 0.7870843512910193,
+        "ap_rank": 0.3148682749188636,
+        "ap_grouped": 0.3120073741545819,
+        "pr_auc_trapz": 0.318068179517854,
+        "auprc": 0.3148682749188636
+      }
+    },
+    "cancer_coded_endpoint_only": {
+      "visit": {
+        "n": 28054,
+        "n_pos": 1041,
+        "prevalence": 0.03710700791331004,
+        "auroc": 0.7297592118897605,
+        "ap_rank": 0.29755285846392854,
+        "ap_grouped": 0.09244253242993042,
+        "pr_auc_trapz": 0.3633399328645076,
+        "auprc": 0.29755285846392854
+      },
+      "lookup": {
+        "n": 28054,
+        "n_pos": 1041,
+        "prevalence": 0.03710700791331004,
+        "auroc": 0.8061282124346647,
+        "ap_rank": 0.34419834166549246,
+        "ap_grouped": 0.3092287744257575,
+        "pr_auc_trapz": 0.4922032316175207,
+        "auprc": 0.34419834166549246
+      },
+      "tabular": {
+        "n": 28054,
+        "n_pos": 1041,
+        "prevalence": 0.03710700791331004,
+        "auroc": 0.7877886240634201,
+        "ap_rank": 0.3157238887753179,
+        "ap_grouped": 0.3128533732585584,
+        "pr_auc_trapz": 0.31893462051902727,
+        "auprc": 0.3157238887753179
+      }
+    }
+  },
+  "patient_bootstrap_prev0": {
+    "visit": {
+      "ap": {
+        "mean": 0.10065045560086996,
+        "lo": 0.05912870353211241,
+        "hi": 0.1797820475650912,
+        "n": 500
+      },
+      "auroc": {
+        "mean": 0.7325251389918355,
+        "lo": 0.6769540066748551,
+        "hi": 0.7927481476247373,
+        "n": 500
+      }
+    },
+    "lookup": {
+      "ap": {
+        "mean": 0.31627882769151705,
+        "lo": 0.2284546007226673,
+        "hi": 0.4172449895858209,
+        "n": 500
+      },
+      "auroc": {
+        "mean": 0.8113421016557784,
+        "lo": 0.777918006478916,
+        "hi": 0.8469230514316013,
+        "n": 500
+      }
+    },
+    "tabular": {
+      "ap": {
+        "mean": 0.3285184086306025,
+        "lo": 0.23285953438768714,
+        "hi": 0.44320145362731317,
+        "n": 500
+      },
+      "auroc": {
+        "mean": 0.7931983329097734,
+        "lo": 0.7196221300542098,
+        "hi": 0.8516388098367975,
+        "n": 500
+      }
+    }
+  },
+  "n_boot": 500,
+  "exclude_chain_first_n": 15913,
+  "tabular_train": {
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "loss": "BCEWithLogits + pos_weight",
+    "hidden": 128,
+    "steps": 4000,
+    "batch_size": 256,
+    "seed": 0
+  }
+}

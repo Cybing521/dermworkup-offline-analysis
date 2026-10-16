@@ -1,0 +1,57 @@
+{
+  "protocol_id": "rda-mdp-v2",
+  "source": "Ghahari et al. Scientific Data 2025, Tables 2-4",
+  "horizon_unit": "visit",
+  "visit_interval_months": 6,
+  "min_visits": 2,
+  "actions": {
+    "WatchTBP": 0,
+    "AcquireDerm": 1,
+    "ReferExcise": 2
+  },
+    "action_rules": {
+        "AcquireDerm": "adjacent-record dermoscopy-presence onset: dermoscopy id present at this chained record and absent at the immediately previous chained record. This is a derived event proxy, not a logged clinician action. It is not identical to first-ever observed dermoscopy on the chain.",
+        "ReferExcise": "pathology-linked endpoint proxy. If Histopathologic_Result flips from false to true, the proxy is aligned to that record (pathology-flag-change). If the flag is constant AND there is histopathology-true or cancer-coded diagnosis evidence, the proxy is placed at the last chained record (lesion-level endpoint). Chains with no histopathology and no cancer-coded diagnosis receive no ReferExcise label. Not a timestamped referral decision.",
+        "WatchTBP": "neither AcquireDerm nor ReferExcise"
+    },
+  "alignment": {
+    "accept_lesion_level": true,
+    "lesion_level_excise": "last_visit",
+    "cost_miss_lesion_level": "terminal_only"
+  },
+  "exclude": {
+    "hops_control": true,
+    "single_visit_lesions": true
+  },
+  "cancer_substrings": [
+    "melanoma",
+    "lentigo maligna",
+    "basal cell",
+    "bcc",
+    "squamous",
+    "scc",
+    "mis"
+  ],
+  "melanoma_substrings": ["melanoma", "lentigo maligna"],
+  "rewards": {
+    "catch_cancer": 1.0,
+    "watch_benign_terminal": 0.05,
+    "derm_resource": -0.02,
+    "gamma": 0.95
+  },
+  "costs": {
+    "miss_non_excise_on_cancer": 1.0,
+    "over_excise_on_benign": 1.0
+  },
+  "split": {
+    "unit": "participant",
+    "train": 0.7,
+    "val": 0.1,
+    "test": 0.2,
+    "seed": 0
+  },
+  "channel": {
+    "mask_missing_dermoscopy": true,
+    "never_encode_blank_as_observed": true
+  }
+}

@@ -1,0 +1,8 @@
+# data and intermediate artefacts are not redistributed (see README.md)
+data/
+results/*.jsonl
+results/_baseline/
+*.pyc
+__pycache__/
+.venv/
+.DS_Store

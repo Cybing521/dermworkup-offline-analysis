@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+title: DermWorkup-Offline analysis code and audit results
+message: >-
+  Code and aggregate audit outputs supporting the reconstruction and ranking audit of
+  sequential pigmented-lesion records from public longitudinal 3D total-body
+  photography. The accompanying manuscript is under review.
+type: software
+authors:
+  - name: Shuang Zhang
+    affiliation: Hubei University of Chinese Medicine
+  - name: Xianyu Zeng
+    affiliation: Wuhan Hospital of Integrated Traditional Chinese and Western Medicine
+license: MIT
+version: 1.0.0
+date-released: "2026-10-16"
+keywords:
+  - 3D total-body photography
+  - pigmented lesion surveillance
+  - longitudinal health records
+  - data reconstruction audit
+  - model evaluation
+references:
+  - type: dataset
+    title: >-
+      A longitudinal dataset of tile and corresponding dermoscopic images with metadata
+      for identifying skin cancers
+    authors:
+      - name: Ghahari, Nima
+      - name: Caffery, Liam
+      - name: Betz-Stablein, Brigid
+      - name: Mothershaw, Adam
+      - name: Jayasinghe, Dilki
+      - name: Primiero, Clare
+      - name: Chandra, Shakes Shekhar
+      - name: Torrano, Joachim
+      - name: Soyer, H. Peter
+      - name: Janda, Monika
+    journal: Scientific Data
+    volume: 12
+    year: 2025
+    doi: 10.1038/s41597-025-05880-2
+  - type: dataset
+    title: UQ eSpace data record
+    doi: 10.48610/a13deaf
+    year: 2025
