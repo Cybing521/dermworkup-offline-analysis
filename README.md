@@ -108,6 +108,39 @@ The reconstruction step was re-run from `tiles.csv` on a clean checkout and prod
 | Pathology-linked endpoint proxies | 169 (49 visit-aligned, 120 lesion-level) |
 | Patient split | 248 / 35 / 69 (train / validation / test), gate: pass |
 
+### What is deterministic and what is not
+
+The whole chain was re-run from `tiles.csv` on a clean checkout and compared against the
+deposited outputs, field by field. The result is clean enough to be worth stating precisely,
+because it tells you which numbers you can expect to reproduce exactly.
+
+**Bit-identical across runs:**
+
+- the whole reconstruction: chain count, component count, lesion–visit record count,
+  participant count, endpoint alignment, and the 248 / 35 / 69 patient split;
+- every quantity produced by the cohort-by-visit lookup, which involves no fitting on the
+  GPU — including all five split rows and all three label-source rows in
+  `results/r3_audit.json`;
+- the visit heuristic, and every bootstrap interval computed from it;
+- the singleton-excluded subset intervals for the visit heuristic and for the lookup.
+
+**Varies by roughly 1% relative between runs:** anything produced by the tabular scorer.
+It is a single hidden layer trained on the GPU, and cuDNN autograd is not bit-deterministic
+even at a fixed seed. Across four independent runs the seed-0 standard average precision came
+out 0.3120, 0.3165, 0.3156 and 0.3161 — a spread of about 0.0045. Some intervals that include
+the tabular model shift with it.
+
+This is why the paper reports a run-to-run band and declines to interpret differences of that
+size. If you re-run and get a tabular number that differs from the deposited one in the third
+decimal place, that is expected; if a **lookup** number differs, something is wrong with your
+setup.
+
+One further correction: the `test_prev0_sites` field in `results/revision_audit.json` as
+originally deposited listed `head and neck: 0` and an inflated `other`. The anatomical-site
+mapping recognises `Head & Neck` only because it normalises `&` to `and` before matching, and
+the deposited file predated that fix. The refreshed file reports `head and neck: 785` and
+`other: 842`. The five other site counts are unchanged.
+
 ## The main finding this code supports
 
 The AcquireDerm label — the adjacent-record onset of a dermoscopic identifier — is
