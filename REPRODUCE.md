@@ -5,8 +5,18 @@ The public pixels are not required. The OPEN tile tables and the `rda` package a
 ## Data
 
 1. Download the UQ eSpace OPEN package (doi: `10.48610/a13deaf`).
-2. Concatenate the general-population and high-risk tile sheets to `data/csv/tiles.csv`.
-3. Do not expect descriptor Table 4 in the zip; HOPS `Study_arm` exclusion cannot be applied from the download.
+   **This step needs a human.** The eSpace site sits behind an AWS WAF bot challenge:
+   `curl` and other scripted clients get HTTP 403 on every path, and the record page
+   does not finish loading in an automated browser. Open
+   `https://espace.library.uq.edu.au/view/UQ:a13deaf` in an ordinary browser, pass the
+   check, and download from there. Nothing else in this repository needs interactive
+   access.
+2. The OPEN zip is roughly 62 GiB, almost all of it pixel images. You do not need it.
+   Take the tile and dermoscopy tables out of the zip without downloading the images,
+   or fetch those members directly, and concatenate the general-population and
+   high-risk tile sheets to `data/csv/tiles.csv`.
+3. Do not expect descriptor Table 4 in the zip; HOPS `Study_arm` exclusion cannot be
+   applied from the download.
 
 ## Environment
 

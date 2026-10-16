@@ -22,6 +22,13 @@ Data record: UQ eSpace, doi: [10.48610/a13deaf](https://doi.org/10.48610/a13deaf
 OPEN package is large because it contains ~62 GiB of images; the tile and dermoscopy
 tables can be taken out of it without downloading the images.
 
+**Downloading it needs a human.** UQ eSpace is behind an AWS WAF bot challenge.
+Scripted clients (`curl`, `wget`, headless browsers) receive HTTP 403 on every path, and
+the record page does not finish loading in an automated browser — we confirmed this on
+16 October 2026. Open the record in an ordinary browser, pass the check, and download
+from there. The DataCite API (`https://api.datacite.org/dois/10.48610/a13deaf`) does
+respond and is a reliable way to confirm the record and its metadata.
+
 ### Licensing — please read before redistributing anything derived from this dataset
 
 The dataset is **not** released under a standard Creative Commons licence. Its DataCite
